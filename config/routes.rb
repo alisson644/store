@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   resources :products do
-    resources :subscripters, only: %i[create]
+    resources :subscribers, only: %i[create]
   end
+  resource :unsubscribe, only: %i[show]
 
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest

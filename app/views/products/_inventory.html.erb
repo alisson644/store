@@ -3,7 +3,7 @@
 <% else %>
   <p>Out of Stock</p>
   <p>Email me when available.</p>
-  <%= form_with model: [product, Subscripter.new] do |f| %>
+  <%= form_with model: [product, Subscriber.new] do |f| %>
     <%= f.email_field :email, placeholder: "Enter your email" %>
     <%= f.submit "Notify Me" %>
   <% end %>

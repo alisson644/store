@@ -1,11 +1,11 @@
-class SubscriptersController < ApplicationController
+class SubscribersController < ApplicationController
   allow_unauthenticated_access
   before_action :set_product
 
   def create
-    @subscripter = @product.subscripters.new(subscripter_params)
+    @subscriber = @product.subscribers.new(subscriber_params)
 
-    if @subscripter.save
+    if @subscriber.save
       redirect_to @product, notice: "You have successfully subscribed to this product."
     else
       redirect_to @product, alert: "There was an error subscribing to this product."
@@ -18,7 +18,7 @@ class SubscriptersController < ApplicationController
     @product = Product.find(params[:product_id])
   end
 
-  def subscripter_params
-    params.expect(subscripter: [ :email ])
+  def subscriber_params
+    params.expect(subscriber: [ :email ])
   end
 end
